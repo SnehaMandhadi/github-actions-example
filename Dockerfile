@@ -1,4 +1,4 @@
-FROM eclipse-termurin:17-jdk-alphine
+FROM openjdk:8
 WORKDIR /app
 COPY target/springboot-example.jar springboot-example.jar
 EXPOSE 8080
