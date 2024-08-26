@@ -1,8 +1,8 @@
-name: maven
+name: CICD
 
 on:
   push:
-    branches: [master]
+    branches: [maven]
 
 jobs:
   build:
@@ -14,9 +14,9 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17' 
+          java-version: '17'
       - name: Build Project
-        run: mvn clean install -DskipTests 
+        run: mvn clean install -DskipTests
       - name: Login to docker hub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build docker image
